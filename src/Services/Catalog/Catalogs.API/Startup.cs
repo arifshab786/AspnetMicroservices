@@ -1,3 +1,4 @@
+using Catalogs.API.Data;
 using Catalogs.API.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +34,7 @@ namespace Catalogs.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalogs.API", Version = "v1" });
             });
 
+            services.AddScoped<ICatalogContext, CatalogContext>();
             services.AddScoped<IProductRepository, ProductRepository>();
         }
 
